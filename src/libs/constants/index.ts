@@ -5,8 +5,8 @@ export enum RoutesPath {
 }
 
 export enum API_ENDPOINTS {
-  SIGN_IN = "/auth/sign-in",
-  SIGN_UP = "/auth/sign-up"
+  SIGN_IN = "/sign-in",
+  SIGN_UP = "/sign-up"
 }
 
 export enum HTTP_METHODS {
@@ -15,4 +15,9 @@ export enum HTTP_METHODS {
   PUT = "PUT",
   PATCH = "PATCH",
   DELETE = "DELETE"
+}
+
+export enum LocalStorageKeys {
+  ACCESS_TOKEN = 'accessToken',
+  REFRESH_TOKEN = 'refreshToken',
 }

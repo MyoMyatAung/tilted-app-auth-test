@@ -2,22 +2,45 @@ import SocialLogin from '../shared/SocialLogin';
 import EmailIcon from "../../assets/icons/email-icon.svg";
 import LockIcon from "../../assets/icons/lock-icon.svg";
 import EyeCloseIcon from "../../assets/icons/eye-close-icon.svg";
-import { Link } from 'react-router-dom';
-import { RoutesPath } from '../../libs/constants';
+import { Link, useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS, LocalStorageKeys, RoutesPath } from '../../libs/constants';
 import Input from '../shared/form/Input';
 import AuthFormBtn from '../shared/form/AuthFormBtn';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SignInInput, signInSchema } from '../../libs/schemas/auth.schema';
+import { ApiClient } from '../../api/client';
+
+interface ResponsePayload {
+  accessToken: string;
+  refreshToken: string;
+}
 
 const SignInForm = () => {
+  const navigate = useNavigate();
+
   const { register, handleSubmit, formState: { errors } } = useForm<SignInInput>({
     defaultValues: { email: "", password: "" },
     resolver: zodResolver(signInSchema)
   });
 
   const onSubmit: SubmitHandler<SignInInput> = async (formData) => {
-    console.log(formData);
+    try {
+      const client = new ApiClient(
+        { "Content-Type": "application/json" },
+        false
+      );
+
+      const response = await client.post<ResponsePayload>(
+        API_ENDPOINTS.SIGN_IN,
+        JSON.stringify(formData)
+      );
+      localStorage.setItem(LocalStorageKeys.ACCESS_TOKEN, response.accessToken);
+      localStorage.setItem(LocalStorageKeys.REFRESH_TOKEN, response.refreshToken);
+      navigate("/");
+    } catch (error) {
+      alert(error);
+    }
   }
 
   return (
