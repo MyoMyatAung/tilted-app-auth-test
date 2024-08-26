@@ -10,22 +10,22 @@ const OverLayImages = () => {
       <img
         src={Img152}
         alt="Img 152"
-        className="absolute mobile:hidden laptop:block top-0 laptop:right-[-65px] desktop:right-0"
+        className="absolute hidden laptop:block top-0 laptop:right-[-65px] desktop:right-0"
       />
       <img
         src={Img154}
         alt="Img 154"
-        className="absolute mobile:hidden laptop:block top-[161px] laptop:right-[-65px] desktop:right-0"
+        className="absolute hidden laptop:block top-[161px] laptop:right-[-65px] desktop:right-0"
       />
       <img
         src={Img155}
         alt="Img 155"
-        className="absolute mobile:hidden laptop:block top-[128px] laptop:left-[-74px] desktop:left-0"
+        className="absolute hidden laptop:block top-[128px] laptop:left-[-74px] desktop:left-0"
       />
       <img
         src={Img150}
         alt="Img 150"
-        className="absolute mobile:hidden laptop:block top-[590.61px] laptop:left-[-18px] desktop:left-[114.43px]"
+        className="absolute hidden laptop:block top-[590.61px] laptop:left-[-18px] desktop:left-[114.43px]"
       />
     </>
   )
