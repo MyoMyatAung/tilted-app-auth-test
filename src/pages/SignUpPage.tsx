@@ -3,8 +3,11 @@ import PasswordForm from "../components/sign-up/PasswordForm";
 import SignUpForm from "../components/sign-up/SignUpForm";
 import WelcomeGamingContent from "../components/sign-up/WelcomeGamingContent";
 import { useSearchParams } from "react-router-dom";
+import { useAuthRouteWrapper } from "../hooks/useCheckAuth";
 
 const SignUpPage = () => {
+  useAuthRouteWrapper();
+
   const [searchParams] = useSearchParams();
   const name = searchParams.get("name");
   const [displayPasswordForm, setDisplayPasswordForm] = useState(false);

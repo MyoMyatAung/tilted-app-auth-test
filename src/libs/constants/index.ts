@@ -6,7 +6,8 @@ export enum RoutesPath {
 
 export enum API_ENDPOINTS {
   SIGN_IN = "/sign-in",
-  SIGN_UP = "/sign-up"
+  SIGN_UP = "/sign-up",
+  GET_ME = "/get-me",
 }
 
 export enum HTTP_METHODS {

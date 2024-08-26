@@ -7,9 +7,12 @@ import LearnMoreContent from "../components/sign-in/LearnMoreContent"
 import Logo from "../components/sign-in/Logo"
 import OverLayImages from "../components/sign-in/OverLayImages"
 import SignInForm from "../components/sign-in/SignInForm"
+import { useAuthRouteWrapper } from "../hooks/useCheckAuth"
 
 
 const SignInPage = () => {
+  useAuthRouteWrapper();
+
   return (
     <div className="relative min-h-screen bg-grid-pattern bg-no-repeat overflow-x-hidden">
       <OverLayImages />
